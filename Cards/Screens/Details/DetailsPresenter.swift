@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+protocol DetailsPresenterInput: AnyObject {
+}
+
+class DetailsPresenter {    
+    weak var view: DetailsViewControllerInput?
+}
+
+extension DetailsPresenter: DetailsPresenterInput {
+}
+

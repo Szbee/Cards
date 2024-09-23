@@ -18,6 +18,8 @@
 		31B636D32CA06BC1004A760B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B636D22CA06BC1004A760B /* TabController.swift */; };
 		31CBF6A22CA0826C00376D36 /* StatementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6A12CA0826C00376D36 /* StatementsViewController.swift */; };
 		31CBF6A52CA0828400376D36 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6A42CA0828400376D36 /* MoreViewController.swift */; };
+		31CBF6D02CA0912900376D36 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6CF2CA0912900376D36 /* CardModel.swift */; };
+		31CBF6D22CA0CCC300376D36 /* CardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */; };
 		99409818EF505CA83E873A07 /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDDD59A803779FBDC39009F /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		31B636D22CA06BC1004A760B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		31CBF6A12CA0826C00376D36 /* StatementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsViewController.swift; sourceTree = "<group>"; };
 		31CBF6A42CA0828400376D36 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		31CBF6CF2CA0912900376D36 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInteractor.swift; sourceTree = "<group>"; };
 		BFDDD59A803779FBDC39009F /* Pods_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D114B86928FE7DE78CE8AC /* Pods-Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.debug.xcconfig"; path = "Target Support Files/Pods-Cards/Pods-Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +86,7 @@
 		313B51C22CA03A3E00765A24 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				31CBF6CC2CA0903C00376D36 /* Networking */,
 				31CBF6A62CA08BD000376D36 /* Screens */,
 				313B51C32CA03A3E00765A24 /* AppDelegate.swift */,
 				313B51C52CA03A3E00765A24 /* SceneDelegate.swift */,
@@ -127,6 +132,15 @@
 				31CBF6A32CA0827200376D36 /* More */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		31CBF6CC2CA0903C00376D36 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				31CBF6CF2CA0912900376D36 /* CardModel.swift */,
+				31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		485419583021C7DBAD9820D3 /* Frameworks */ = {
@@ -260,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31CBF6D22CA0CCC300376D36 /* CardInteractor.swift in Sources */,
+				31CBF6D02CA0912900376D36 /* CardModel.swift in Sources */,
 				31368A072CA06264007DEDDC /* DetailsViewController.swift in Sources */,
 				31B636D32CA06BC1004A760B /* TabController.swift in Sources */,
 				314634832CA044F200AA9A80 /* CardLandingPresenter.swift in Sources */,

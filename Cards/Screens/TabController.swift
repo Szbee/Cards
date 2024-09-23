@@ -12,9 +12,7 @@ class TabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabs()
-        
-//        self.selectedIndex = 0
-//        
+  
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .red
         self.tabBar.tintColor = .blue
@@ -22,12 +20,27 @@ class TabController: UITabBarController {
         self.tabBar.backgroundColor = .white
     }
     
+    private func landingFactory() -> UIViewController {
+        let presenter = CardLandingPresenter()
+        let controller = CardLandingViewController(presenter: presenter)
+        presenter.view = controller
+        
+        return controller
+    }
+    
+    private func detailsFactory() -> UIViewController {
+        let presenter = DetailsPresenter()
+        let controller = DetailsViewController(presenter: presenter)
+        presenter.view = controller
+        
+        return controller
+    }
 
     private func setupTabs() {
-        let landing = self.createNavigation(with: "landing", and: UIImage(systemName: "house"), vc: CardLandingViewController())
-        let details = self.createNavigation(with: "details", and: UIImage(systemName: "house"), vc: DetailsViewController())
-        let statements = self.createNavigation(with: "statements", and: UIImage(systemName: "house"), vc: StatementsViewController())
-        let more = self.createNavigation(with: "more", and: UIImage(systemName: "house"), vc: MoreViewController())
+        let landing = self.createNavigation(with: "landing", and: UIImage(named: "nav_cards"), vc: landingFactory())
+        let details = self.createNavigation(with: "details", and: UIImage(named: "nav_trans"), vc: detailsFactory())
+        let statements = self.createNavigation(with: "statements", and: UIImage(named: "nav_state"), vc: StatementsViewController())
+        let more = self.createNavigation(with: "more", and: UIImage(named: "nav_more"), vc: MoreViewController())
 
         self.setViewControllers([landing, details, statements, more], animated: true)
     }
