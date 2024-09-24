@@ -20,13 +20,17 @@ class CardLandingPresenter {
     var cardData: [CardResponse] = []
     
     private func downloadData() {
+        view?.setViewState(.loading)
         interactor.fetchData{ [weak self] result in
             switch result {
             case .success(let response):
                 self?.cardData = response
                 self?.view?.reloadData()
+                self?.view?.setViewState(.none)
             case .failure(let error):
-                print(error)
+                self?.view?.showErrorScreen(error: error.localizedDescription) {
+                    self?.downloadData()
+                }
             }
         }
     }
