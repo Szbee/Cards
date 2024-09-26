@@ -15,20 +15,35 @@ protocol CardLandingViewControllerInput: AnyObject {
     func reloadData()
 }
 
-class CardLandingViewController: BaseViewController {
+class CardLandingViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var presenter: CardLandingPresenterInput
     
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "Hello"
-
-        return label
+    private lazy var cardContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "darkBlue")
+        return view
     }()
     
-    private lazy var cardView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
+    private lazy var cardView: CardView = {
+        let view = CardView()
+
         return view
+    }()
+    
+    private lazy var dataTableView: UITableView = {
+        let view = UITableView()
+        view.allowsSelection = false
+
+        return view
+    }()
+    
+    private lazy var detailsButton: BorderedButton = {
+        let button = BorderedButton()
+        button.setTitle("Details", for: .normal)
+        button.setTitle("Details", for: .highlighted)
+        
+        return button
     }()
     
     init(presenter: CardLandingPresenterInput) {
@@ -42,26 +57,68 @@ class CardLandingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .green
-        self.title = "Cards"
+
+        self.title = "Premium Card"
         
         presenter.loadData()
     }
     
     override func setupViews() {
         super.setupViews()
+        
+        dataTableView.delegate = self
+        dataTableView.dataSource = self
+        dataTableView.register(CardDataTableViewCell.self, forCellReuseIdentifier: "CardDataTableViewCell")
 
-        contentView.addSubview(cardView)
+        contentView.addSubview(cardContainerView)
+        cardContainerView.addSubview(cardView)
+        
+        contentView.addSubview(dataTableView)
+        contentView.addSubview(detailsButton)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
         
-        cardView.snp.makeConstraints { make in
+        cardContainerView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(148)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(60)
         }
+        
+        cardView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
+        }
+        
+        dataTableView.snp.makeConstraints { make in
+            make.top.equalTo(cardContainerView.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.greaterThanOrEqualTo(detailsButton.snp.top).offset(16)
+        }
+        
+        detailsButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(40)
+            make.width.equalTo(160)
+            make.bottom.equalToSuperview().inset(24)
+        }
+    }
+    
+    // MARK: - Tableview Functions
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.dataRows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CardDataTableViewCell", for: indexPath) as? CardDataTableViewCell {
+            cell.titleText = presenter.dataRows[indexPath.row].title
+            cell.currencyText = presenter.dataRows[indexPath.row].currency
+            cell.dataText = presenter.dataRows[indexPath.row].data
+            
+            return cell
+        }
+        
+        return UITableViewCell()
     }
 }
 
@@ -75,6 +132,6 @@ extension CardLandingViewController: CardLandingViewControllerInput {
     }
     
     func reloadData() {
-        print(presenter.cardData)
+        dataTableView.reloadData()
     }
 }

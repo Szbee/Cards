@@ -16,6 +16,7 @@ class ErrorView: UIView {
         let label = UILabel()
         label.text = "Something went wrong"
         label.textAlignment = .center
+        label.font = UIFont(name: "Roboto-Regular", size: 72)
         
         return label
     }()
@@ -78,7 +79,9 @@ class ErrorView: UIView {
         
         tryAgainButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(64)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(40)
+            make.width.equalTo(160)
         }
     }
     

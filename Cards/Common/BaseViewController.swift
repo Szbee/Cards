@@ -53,7 +53,7 @@ class BaseViewController: UIViewController {
         view.addSubview(contentView)
         view.addSubview(loadingView)
         view.addSubview(errorView)
-        contentView.backgroundColor = .darkGray
+        contentView.backgroundColor = .white
         
         setState(.none)
     }

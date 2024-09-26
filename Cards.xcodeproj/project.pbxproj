@@ -23,6 +23,9 @@
 		31CBF6A52CA0828400376D36 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6A42CA0828400376D36 /* MoreViewController.swift */; };
 		31CBF6D02CA0912900376D36 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6CF2CA0912900376D36 /* CardModel.swift */; };
 		31CBF6D22CA0CCC300376D36 /* CardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */; };
+		31DA9CFA2CA3658600B81139 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA9CF92CA3658600B81139 /* BorderedButton.swift */; };
+		31DA9CFD2CA368C500B81139 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA9CFC2CA368C500B81139 /* CardView.swift */; };
+		31EB14182CA4BA14006DCD86 /* CardDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB14172CA4BA14006DCD86 /* CardDataTableViewCell.swift */; };
 		99409818EF505CA83E873A07 /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDDD59A803779FBDC39009F /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		31CBF6A42CA0828400376D36 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		31CBF6CF2CA0912900376D36 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInteractor.swift; sourceTree = "<group>"; };
+		31DA9CF92CA3658600B81139 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		31DA9CFC2CA368C500B81139 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		31EB14172CA4BA14006DCD86 /* CardDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataTableViewCell.swift; sourceTree = "<group>"; };
 		BFDDD59A803779FBDC39009F /* Pods_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D114B86928FE7DE78CE8AC /* Pods-Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.debug.xcconfig"; path = "Target Support Files/Pods-Cards/Pods-Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +113,7 @@
 		3146347F2CA044B200AA9A80 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
+				31DA9CFB2CA368AF00B81139 /* Card */,
 				314634802CA044E700AA9A80 /* CardLandingViewController.swift */,
 				314634822CA044F200AA9A80 /* CardLandingPresenter.swift */,
 			);
@@ -116,9 +123,11 @@
 		31520F892CA214DE008E50E3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				31DA9CF82CA3657300B81139 /* Buttons */,
 				31520F872CA1FE0B008E50E3 /* BaseViewController.swift */,
 				31520F8A2CA2152E008E50E3 /* LoadingView.swift */,
 				31520F8C2CA21A5E008E50E3 /* ErrorView.swift */,
+				31EB14172CA4BA14006DCD86 /* CardDataTableViewCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -158,6 +167,22 @@
 				31CBF6D12CA0CCC300376D36 /* CardInteractor.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		31DA9CF82CA3657300B81139 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				31DA9CF92CA3658600B81139 /* BorderedButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		31DA9CFB2CA368AF00B81139 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				31DA9CFC2CA368C500B81139 /* CardView.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		485419583021C7DBAD9820D3 /* Frameworks */ = {
@@ -296,14 +321,17 @@
 				31368A072CA06264007DEDDC /* DetailsViewController.swift in Sources */,
 				31B636D32CA06BC1004A760B /* TabController.swift in Sources */,
 				314634832CA044F200AA9A80 /* CardLandingPresenter.swift in Sources */,
+				31DA9CFA2CA3658600B81139 /* BorderedButton.swift in Sources */,
 				31CBF6A22CA0826C00376D36 /* StatementsViewController.swift in Sources */,
 				31520F882CA1FE0B008E50E3 /* BaseViewController.swift in Sources */,
 				314634812CA044E700AA9A80 /* CardLandingViewController.swift in Sources */,
+				31EB14182CA4BA14006DCD86 /* CardDataTableViewCell.swift in Sources */,
 				31CBF6A52CA0828400376D36 /* MoreViewController.swift in Sources */,
 				313B51C42CA03A3E00765A24 /* AppDelegate.swift in Sources */,
 				313B51C62CA03A3E00765A24 /* SceneDelegate.swift in Sources */,
 				31520F8D2CA21A5E008E50E3 /* ErrorView.swift in Sources */,
 				31520F8B2CA2152E008E50E3 /* LoadingView.swift in Sources */,
+				31DA9CFD2CA368C500B81139 /* CardView.swift in Sources */,
 				31368A052CA06259007DEDDC /* DetailsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
