@@ -9,6 +9,8 @@ import Foundation
 
 protocol CardLandingPresenterInput: AnyObject {
     var dataRows: [CardLandingPresenter.LandingRowModel] { get set }
+    var cardData: [CardResponse] { get set }
+    var selectedIndex: Int { get }
     func loadData()
 }
 
@@ -51,17 +53,17 @@ class CardLandingPresenter {
             .init(
                 title: "Current balance",
                 currency: cardData[selectedIndex].currency,
-                data: String(cardData[selectedIndex].currentBalance ?? 0)
+                data: cardData[selectedIndex].currentBalance?.formatNumber(minimumFractionDigits: 2) ?? "0"
             ),
             .init(
                 title: "Min. payment",
                 currency: cardData[selectedIndex].currency,
-                data: String(cardData[selectedIndex].minPayment ?? 0)
+                data: cardData[selectedIndex].minPayment?.formatNumber(minimumFractionDigits: 2) ?? "0"
             ),
             .init(
                 title: "Due date",
                 currency: nil,
-                data: cardData[selectedIndex].dueDate ?? ""
+                data: cardData[selectedIndex].dueDate?.formatDateString() ?? ""
             )
         ]
     }

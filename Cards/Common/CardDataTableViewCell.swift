@@ -12,7 +12,7 @@ class CardDataTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "statusBlue")
+        label.textColor = UIColor.statusBlue
         label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.numberOfLines = 0
         
@@ -21,7 +21,7 @@ class CardDataTableViewCell: UITableViewCell {
     
     private lazy var currencyLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "grey")
+        label.textColor = UIColor.appGrey
         label.font = UIFont(name: "Roboto-Regular", size: 16)
         
         return label
@@ -29,7 +29,7 @@ class CardDataTableViewCell: UITableViewCell {
     
     private lazy var dataLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "darkBlue")
+        label.textColor = UIColor.darkBlue
         label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.textAlignment = .right
         

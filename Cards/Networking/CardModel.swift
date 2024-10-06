@@ -16,13 +16,13 @@ struct CardResponse: Decodable {
     let friendlyName: String?
     let currency: String?
     let cvv: String?
-    let availableBalance: Int?
-    let currentBalance: Int?
-    let minPayment: Int?
+    let availableBalance: Double?
+    let currentBalance: Double?
+    let minPayment: Double?
     let dueDate: String?
-    let reservations: Int?
-    let balanceCarriedOverFromLastStatement: Int?
-    let spendingsSinceLastStatement: Int?
+    let reservations: Double?
+    let balanceCarriedOverFromLastStatement: Double?
+    let spendingsSinceLastStatement: Double?
     let yourLastRepayment: String?
     let accountDetails: AccountDetails?
     let status: String?
@@ -30,6 +30,6 @@ struct CardResponse: Decodable {
 }
 
 struct AccountDetails: Decodable {
-    let accountLimit: Int?
+    let accountLimit: Double?
     let accountNumber: String?
 }

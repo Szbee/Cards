@@ -22,12 +22,12 @@ class BorderedButton: UIButton {
     private func setUpButton(){
         backgroundColor = .clear
         tintColor = .blue
-        setTitleColor(UIColor(named: "secondaryBlue"), for: .normal)
-        setTitleColor(UIColor(named: "secondaryBlue"), for: .highlighted)
+        setTitleColor(UIColor.secondaryBlue, for: .normal)
+        setTitleColor(UIColor.secondaryBlue, for: .highlighted)
         
         layer.cornerRadius = 4
         layer.borderWidth = 2.0
-        layer.borderColor = UIColor(named: "secondaryBlue")?.cgColor
+        layer.borderColor = UIColor.secondaryBlue.cgColor
     }
 
 }

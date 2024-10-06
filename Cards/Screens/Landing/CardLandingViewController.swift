@@ -19,15 +19,16 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
     
     var presenter: CardLandingPresenterInput
     
-    private lazy var cardContainerView: UIView = {
+    private lazy var cardChooserView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "darkBlue")
+        
         return view
     }()
     
-    private lazy var cardView: CardView = {
-        let view = CardView()
-
+    private lazy var chartView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        
         return view
     }()
     
@@ -70,27 +71,31 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         dataTableView.dataSource = self
         dataTableView.register(CardDataTableViewCell.self, forCellReuseIdentifier: "CardDataTableViewCell")
 
-        contentView.addSubview(cardContainerView)
-        cardContainerView.addSubview(cardView)
-        
+        contentView.addSubview(cardChooserView)
+        contentView.addSubview(chartView)
         contentView.addSubview(dataTableView)
         contentView.addSubview(detailsButton)
+        
+        detailsButton.addTarget(self, action: #selector(detailsButtonTapped), for: .touchUpInside)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
         
-        cardContainerView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(148)
+        cardChooserView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(148)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(160)
+            make.bottom.equalTo(chartView.snp.top).offset(16)
         }
         
-        cardView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+        chartView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(40)
         }
         
         dataTableView.snp.makeConstraints { make in
-            make.top.equalTo(cardContainerView.snp.bottom).offset(16)
+            make.top.equalTo(chartView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
             make.bottom.greaterThanOrEqualTo(detailsButton.snp.top).offset(16)
         }
@@ -103,7 +108,15 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         }
     }
     
-    // MARK: - Tableview Functions
+    @objc func detailsButtonTapped() {
+        let presenter = DetailsPresenter(cardData: presenter.cardData[presenter.selectedIndex])
+        let view = DetailsViewController(presenter: presenter)
+        presenter.view = view
+
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    // MARK: - TableView Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.dataRows.count
