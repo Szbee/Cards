@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 protocol CardLandingViewControllerInput: AnyObject {
+    var cardImages: [Int] { get set }
     func setViewState(_ state: BaseViewController.ViewState)
     func showErrorScreen(error: String, buttonAction: @escaping ErrorView.ButtonAction)
     func reloadData()
@@ -19,8 +20,8 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
     
     var presenter: CardLandingPresenterInput
     
-    private lazy var cardChooserView: UIView = {
-        let view = UIView()
+    private lazy var cardChooserView: CardSwitcherComponentView = {
+        let view = CardSwitcherComponentView()
         
         return view
     }()
@@ -46,6 +47,8 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         
         return button
     }()
+    
+    var cardImages: [Int] = []
     
     init(presenter: CardLandingPresenterInput) {
         self.presenter = presenter
@@ -76,6 +79,12 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         contentView.addSubview(dataTableView)
         contentView.addSubview(detailsButton)
         
+        cardChooserView.cardCollectionView.selectedIndex = presenter.selectedIndex
+        cardChooserView.cardCollectionView.indexChanged = { [weak self] index in
+            self?.presenter.selectedIndex = index
+            self?.dataTableView.reloadData()
+        }
+        
         detailsButton.addTarget(self, action: #selector(detailsButtonTapped), for: .touchUpInside)
     }
     
@@ -83,13 +92,13 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         super.setupConstraints()
         
         cardChooserView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(148)
+            make.top.equalToSuperview().offset(16)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(160)
-            make.bottom.equalTo(chartView.snp.top).offset(16)
         }
         
         chartView.snp.makeConstraints { make in
+            make.top.equalTo(cardChooserView.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(40)
         }
@@ -145,6 +154,7 @@ extension CardLandingViewController: CardLandingViewControllerInput {
     }
     
     func reloadData() {
+        cardChooserView.cards = cardImages
         dataTableView.reloadData()
     }
 }

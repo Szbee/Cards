@@ -13,12 +13,15 @@ class CardView: UIView {
     private lazy var cardImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
     
-    private lazy var cardShadowView: UIImageView = {
-        let view = UIImageView()
+    private lazy var cardShadow: UIView = {
+        let view = UIView()
         
         return view
     }()
@@ -49,8 +52,6 @@ class CardView: UIView {
     private func setupConstraint() {
         cardImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.equalTo(202)
-            make.height.equalTo(126)
         }
     }
     
@@ -62,7 +63,7 @@ class CardView: UIView {
         } else if cardIndex == 2 {
             cardImageView.image = UIImage(named: "cccard2")
         } else if cardIndex == 3 {
-            cardImageView.image = UIImage(named: "cccard2")
+            cardImageView.image = UIImage(named: "cccard3")
         }
     }
 }

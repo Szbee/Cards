@@ -45,7 +45,7 @@ class DetailsSummaryHeaderView: UIView {
     
     private lazy var availableTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Avaliable"
+        label.text = "Available"
         label.textColor = UIColor.statusBlue
         
         return label

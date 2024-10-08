@@ -89,7 +89,7 @@ class DetailsViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.setupConstraints()
         
         headerView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(148)
+            make.top.equalToSuperview().inset(8)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
@@ -115,7 +115,7 @@ class DetailsViewController: BaseViewController, UITableViewDelegate, UITableVie
         dataTableView.snp.makeConstraints { make in
             make.top.equalTo(reservationsCell.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview()
-            make.bottom.greaterThanOrEqualToSuperview().offset(16)
+            make.bottom.greaterThanOrEqualToSuperview().inset(16)
         }
     }
     

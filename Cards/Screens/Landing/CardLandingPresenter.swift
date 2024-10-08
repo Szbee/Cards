@@ -10,7 +10,7 @@ import Foundation
 protocol CardLandingPresenterInput: AnyObject {
     var dataRows: [CardLandingPresenter.LandingRowModel] { get set }
     var cardData: [CardResponse] { get set }
-    var selectedIndex: Int { get }
+    var selectedIndex: Int { get set }
     func loadData()
 }
 
@@ -29,7 +29,11 @@ class CardLandingPresenter {
     var cardData: [CardResponse] = []
     var dataRows: [LandingRowModel] = []
     
-    var selectedIndex: Int = 0
+    var selectedIndex: Int = 0 {
+        didSet {
+            dataRows = setupRows()
+        }
+    }
     
     private func downloadData() {
         view?.setViewState(.loading)
@@ -38,12 +42,21 @@ class CardLandingPresenter {
             case .success(let response):
                 self?.cardData = response
                 self?.dataRows = self?.setupRows() ?? []
+                self?.fillCardImagesArray()
                 self?.view?.reloadData()
                 self?.view?.setViewState(.none)
             case .failure(let error):
                 self?.view?.showErrorScreen(error: error.localizedDescription) {
                     self?.downloadData()
                 }
+            }
+        }
+    }
+    
+    private func fillCardImagesArray() {
+        for card in cardData {
+            if let cardId = Int(card.cardImage ?? "0") {
+                view?.cardImages.append(cardId)
             }
         }
     }
