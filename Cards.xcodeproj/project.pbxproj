@@ -33,6 +33,8 @@
 		31DA9CFA2CA3658600B81139 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA9CF92CA3658600B81139 /* BorderedButton.swift */; };
 		31DA9CFD2CA368C500B81139 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA9CFC2CA368C500B81139 /* CardView.swift */; };
 		31EB14182CA4BA14006DCD86 /* CardDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB14172CA4BA14006DCD86 /* CardDataTableViewCell.swift */; };
+		31EE602D2CB5D96B005FCB4D /* AvailableProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE602C2CB5D96B005FCB4D /* AvailableProgressBar.swift */; };
+		31EE89E62CB71CB000130D37 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE89E52CB71CB000130D37 /* TransactionsViewController.swift */; };
 		31F87CAE2CB1441B005ED5FB /* BalanceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F87CAD2CB1441B005ED5FB /* BalanceChart.swift */; };
 		99409818EF505CA83E873A07 /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDDD59A803779FBDC39009F /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		31DA9CF92CA3658600B81139 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		31DA9CFC2CA368C500B81139 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		31EB14172CA4BA14006DCD86 /* CardDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataTableViewCell.swift; sourceTree = "<group>"; };
+		31EE602C2CB5D96B005FCB4D /* AvailableProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProgressBar.swift; sourceTree = "<group>"; };
+		31EE89E52CB71CB000130D37 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		31F87CAD2CB1441B005ED5FB /* BalanceChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceChart.swift; sourceTree = "<group>"; };
 		BFDDD59A803779FBDC39009F /* Pods_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D114B86928FE7DE78CE8AC /* Pods-Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.debug.xcconfig"; path = "Target Support Files/Pods-Cards/Pods-Cards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				31DA9CFB2CA368AF00B81139 /* Card */,
 				314634802CA044E700AA9A80 /* CardLandingViewController.swift */,
 				314634822CA044F200AA9A80 /* CardLandingPresenter.swift */,
+				31EE602E2CB5D972005FCB4D /* ProgressBar */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 		31CBF6A62CA08BD000376D36 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				31EE89E42CB71C4100130D37 /* Transactions */,
 				31B636D22CA06BC1004A760B /* TabController.swift */,
 				3146347F2CA044B200AA9A80 /* Landing */,
 				31368A032CA0624A007DEDDC /* Details */,
@@ -231,6 +237,22 @@
 				310980312CB2EE84004A20ED /* CardSwitcherComponentView.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		31EE602E2CB5D972005FCB4D /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				31EE602C2CB5D96B005FCB4D /* AvailableProgressBar.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
+		31EE89E42CB71C4100130D37 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				31EE89E52CB71CB000130D37 /* TransactionsViewController.swift */,
+			);
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 		485419583021C7DBAD9820D3 /* Frameworks */ = {
@@ -364,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EE602D2CB5D96B005FCB4D /* AvailableProgressBar.swift in Sources */,
 				3109802A2CB2AD9F004A20ED /* Double+Extensions.swift in Sources */,
 				31CBF6D22CA0CCC300376D36 /* CardInteractor.swift in Sources */,
 				3109802C2CB2BEAE004A20ED /* UIImage+Extensions.swift in Sources */,
@@ -376,6 +399,7 @@
 				31CBF6A22CA0826C00376D36 /* StatementsViewController.swift in Sources */,
 				31520F882CA1FE0B008E50E3 /* BaseViewController.swift in Sources */,
 				314634812CA044E700AA9A80 /* CardLandingViewController.swift in Sources */,
+				31EE89E62CB71CB000130D37 /* TransactionsViewController.swift in Sources */,
 				310980302CB2D742004A20ED /* String+Extensions.swift in Sources */,
 				31EB14182CA4BA14006DCD86 /* CardDataTableViewCell.swift in Sources */,
 				31CBF6A52CA0828400376D36 /* MoreViewController.swift in Sources */,

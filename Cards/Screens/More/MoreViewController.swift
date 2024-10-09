@@ -14,5 +14,6 @@ class MoreViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         self.title = "More"
+        self.navigationItem.title = "More"
     }
 }

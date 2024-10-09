@@ -14,9 +14,8 @@ class TabController: UITabBarController {
         self.setupTabs()
   
         self.tabBar.isTranslucent = false
-        self.tabBar.barTintColor = .red
-        self.tabBar.tintColor = .blue
-        self.tabBar.unselectedItemTintColor = .gray
+        self.tabBar.tintColor = .statusBlue
+        self.tabBar.unselectedItemTintColor = .secondaryBlue
         self.tabBar.backgroundColor = .white
     }
     
@@ -27,20 +26,12 @@ class TabController: UITabBarController {
         
         return controller
     }
-    
-    private func detailsFactory() -> UIViewController {
-        let presenter = DetailsPresenter(cardData: nil)
-        let controller = DetailsViewController(presenter: presenter)
-        presenter.view = controller
-        
-        return controller
-    }
 
     private func setupTabs() {
-        let landing = self.createNavigation(with: "landing", and: UIImage(named: "nav_cards")?.resized(to: CGSize(width: 24, height: 24)), vc: landingFactory())
-        let details = self.createNavigation(with: "details", and: UIImage(named: "nav_trans")?.resized(to: CGSize(width: 24, height: 24)), vc: detailsFactory())
-        let statements = self.createNavigation(with: "statements", and: UIImage(named: "nav_state")?.resized(to: CGSize(width: 24, height: 24)), vc: StatementsViewController())
-        let more = self.createNavigation(with: "more", and: UIImage(named: "nav_more")?.resized(to: CGSize(width: 24, height: 24)), vc: MoreViewController())
+        let landing = self.createNavigation(with: "Cards", and: UIImage(named: "nav_cards")?.resized(to: CGSize(width: 24, height: 24)), vc: landingFactory())
+        let details = self.createNavigation(with: "Transactions", and: UIImage(named: "nav_trans")?.resized(to: CGSize(width: 24, height: 24)), vc: TransactionsViewController())
+        let statements = self.createNavigation(with: "Statements", and: UIImage(named: "nav_state")?.resized(to: CGSize(width: 24, height: 24)), vc: StatementsViewController())
+        let more = self.createNavigation(with: "More", and: UIImage(named: "nav_more")?.resized(to: CGSize(width: 24, height: 24)), vc: MoreViewController())
 
         self.setViewControllers([landing, details, statements, more], animated: true)
     }

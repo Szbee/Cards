@@ -26,9 +26,8 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         return view
     }()
     
-    private lazy var chartView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
+    private lazy var chartView: AvailableProgressBar = {
+        let view = AvailableProgressBar()
         
         return view
     }()
@@ -62,7 +61,8 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Premium Card"
+        self.title = "Cards"
+        self.navigationItem.title = "Premium Card"
         
         presenter.loadData()
     }
@@ -82,6 +82,7 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         cardChooserView.cardCollectionView.selectedIndex = presenter.selectedIndex
         cardChooserView.cardCollectionView.indexChanged = { [weak self] index in
             self?.presenter.selectedIndex = index
+            self?.updateChart()
             self?.dataTableView.reloadData()
         }
         
@@ -100,7 +101,6 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         chartView.snp.makeConstraints { make in
             make.top.equalTo(cardChooserView.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(40)
         }
         
         dataTableView.snp.makeConstraints { make in
@@ -115,6 +115,13 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
             make.width.equalTo(160)
             make.bottom.equalToSuperview().inset(24)
         }
+    }
+    
+    private func updateChart() {
+        let chartCurrentBalance = presenter.cardData[presenter.selectedIndex].currentBalance ?? 0.0
+        let chartAvailableBalance = presenter.cardData[presenter.selectedIndex].availableBalance ?? 0.0
+
+        chartView.updateChart(totalAmount: chartCurrentBalance + chartAvailableBalance, avaliableAmount: chartAvailableBalance)
     }
     
     @objc func detailsButtonTapped() {
@@ -155,6 +162,7 @@ extension CardLandingViewController: CardLandingViewControllerInput {
     
     func reloadData() {
         cardChooserView.cards = cardImages
+        updateChart()
         dataTableView.reloadData()
     }
 }

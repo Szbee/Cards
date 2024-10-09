@@ -14,5 +14,6 @@ class StatementsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .purple
         self.title = "Statements"
+        self.navigationItem.title = "Statements"
     }
 }
