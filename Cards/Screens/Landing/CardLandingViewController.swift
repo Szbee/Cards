@@ -67,8 +67,8 @@ class CardLandingViewController: BaseViewController, UITableViewDelegate, UITabl
         presenter.loadData()
     }
     
-    override func setupViews() {
-        super.setupViews()
+    override func setupView() {
+        super.setupView()
         
         dataTableView.delegate = self
         dataTableView.dataSource = self

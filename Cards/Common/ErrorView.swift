@@ -16,7 +16,6 @@ class ErrorView: UIView {
         let label = UILabel()
         label.text = "Something went wrong"
         label.textAlignment = .center
-        label.font = UIFont(name: "Roboto-Regular", size: 72)
         
         return label
     }()

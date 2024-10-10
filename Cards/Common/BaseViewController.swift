@@ -40,7 +40,7 @@ class BaseViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        setupViews()
+        setupView()
     }
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class BaseViewController: UIViewController {
         setupConstraints()
     }
     
-    func setupViews() {
+    func setupView() {
         view.addSubview(contentView)
         view.addSubview(loadingView)
         view.addSubview(errorView)

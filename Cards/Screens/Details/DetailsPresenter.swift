@@ -72,23 +72,23 @@ class DetailsPresenter {
             )
         ]
         
-        // Ezek az adatok hiányoznak az API-ból
+        // Missing from API
         let supplementaryCardSection: [CardLandingPresenter.LandingRowModel] = [
             .init(
                 title: "Card number",
-                data: cardData.cardNumber ?? ""
+                data: ""
             ),
             .init(
                 title: "Card holder name",
-                data: cardData.cardHolderName ?? ""
+                data: ""
             )
         ]
         
         return [
             .init(name: "Balance overview", rows: balanceSection),
             .init(name: "Account details", rows: accountDetailsSection),
-            .init(name: "Main card", rows: mainCardSection),
-            .init(name: "Supplementary card", rows: supplementaryCardSection)
+            .init(name: "Main card", rows: mainCardSection)
+//            .init(name: "Supplementary card", rows: supplementaryCardSection)
         ]
     }
     

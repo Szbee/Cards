@@ -15,7 +15,6 @@ protocol DetailsViewControllerInput: AnyObject {
 }
 
 class DetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    // MARK: - View elements
     
     private lazy var headerView: DetailsSummaryHeaderView = {
         let view = DetailsSummaryHeaderView()
@@ -47,8 +46,6 @@ class DetailsViewController: BaseViewController, UITableViewDelegate, UITableVie
 
         return view
     }()
-    
-    // MARK: - Properties
 
     var presenter: DetailsPresenterInput
     
@@ -68,8 +65,8 @@ class DetailsViewController: BaseViewController, UITableViewDelegate, UITableVie
         presenter.loadData()
     }
     
-    override func setupViews() {
-        super.setupViews()
+    override func setupView() {
+        super.setupView()
 
         dataTableView.delegate = self
         dataTableView.dataSource = self

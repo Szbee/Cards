@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    func formatNumber(minimumFractionDigits: Int, maximumFractionDigits: Int=2) -> String {
+    func formatNumber(minimumFractionDigits: Int, maximumFractionDigits: Int = 2) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
 

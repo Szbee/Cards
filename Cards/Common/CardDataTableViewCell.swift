@@ -13,7 +13,6 @@ class CardDataTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.statusBlue
-        label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.numberOfLines = 0
         
         return label
@@ -22,7 +21,6 @@ class CardDataTableViewCell: UITableViewCell {
     private lazy var currencyLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.appGrey
-        label.font = UIFont(name: "Roboto-Regular", size: 16)
         
         return label
     }()
@@ -30,7 +28,6 @@ class CardDataTableViewCell: UITableViewCell {
     private lazy var dataLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkBlue
-        label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.textAlignment = .right
         
         return label
@@ -75,7 +72,7 @@ class CardDataTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(16)
             make.leading.equalToSuperview().inset(16)
-            make.width.equalTo(192) // itt a designon a szélesség fix ennyi a currencyLabel pedig egy vonalban van
+            make.width.equalTo(192)
         }
         
         currencyLabel.snp.makeConstraints { make in

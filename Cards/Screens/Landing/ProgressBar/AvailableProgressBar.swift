@@ -22,7 +22,6 @@ class AvailableProgressBar: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .statusBlue
-        label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.numberOfLines = 0
         
         return label
@@ -31,7 +30,6 @@ class AvailableProgressBar: UIView {
     private lazy var amountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .statusBlue
-        label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.textAlignment = .right
         
         return label
